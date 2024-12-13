@@ -10,6 +10,10 @@
 #include "Input.hpp"
 #include "Common.hpp"
 
+#ifdef _MSC_VER
+#undef min
+#endif
+
 //Common.hpp
 template<typename T>
 void readFile(HANDLE file, std::vector<T>& buffer, std::size_t count);

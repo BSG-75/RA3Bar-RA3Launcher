@@ -856,7 +856,7 @@ LanguageData getNewLanguage(HWND controlCenter, const std::wstring& ra3Path, HIC
 
 	auto handlers = ModalDialogBox::HandlerTable{};
 
-	handlers[WM_INITDIALOG] = [controlCenter, icon, &languageData, &font, &languages](HWND dialogBox, WPARAM wParam, LPARAM lParam) {
+	handlers[WM_INITDIALOG] = [controlCenter, icon, &languageData, &font, &languages,&clientArea](HWND dialogBox, WPARAM wParam, LPARAM lParam) {
 		myBeginDialog(dialogBox, getText(languageData, setLanguage), icon,
 		              controlCenter, ICC_STANDARD_CLASSES, clientArea);
 

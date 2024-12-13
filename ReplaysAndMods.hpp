@@ -90,7 +90,7 @@ namespace ReplaysAndMods {
 			if(getPathResult != S_OK) {
 				throw std::runtime_error("SHGetFolderPathAndSubDir failed, error code " + std::to_string(getPathResult));
 			}
-			ra3UserPathName.resize(std::min(ra3UserPathName.size(), ra3UserPathName.find('\0')));
+			ra3UserPathName.resize(std::min(ra3UserPathName.size(), ra3UserPathName.find(L'\0')));
 
 			appendToFolder(ra3UserPathName, userDataLeafName);
 			if(not isDirectory(ra3UserPathName)) {

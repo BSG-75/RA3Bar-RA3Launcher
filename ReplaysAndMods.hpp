@@ -10,6 +10,10 @@
 #include "Input.hpp"
 #include "Common.hpp"
 
+#ifdef _MSC_VER
+#undef min
+#endif
+
 //Common.hpp
 template<typename T>
 void readFile(HANDLE file, std::vector<T>& buffer, std::size_t count);
@@ -86,7 +90,7 @@ namespace ReplaysAndMods {
 			if(getPathResult != S_OK) {
 				throw std::runtime_error("SHGetFolderPathAndSubDir failed, error code " + std::to_string(getPathResult));
 			}
-			ra3UserPathName.resize(std::min(ra3UserPathName.size(), ra3UserPathName.find('\0')));
+			ra3UserPathName.resize(std::min(ra3UserPathName.size(), ra3UserPathName.find(L'\0')));
 
 			appendToFolder(ra3UserPathName, userDataLeafName);
 			if(not isDirectory(ra3UserPathName)) {

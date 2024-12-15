@@ -7,6 +7,13 @@
 #include "ReplaysAndMods.hpp"
 #include "resource.h"
 
+#ifdef _MSC_VER
+#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#pragma comment(linker,"/ENTRY:mainCRTStartup")
+#pragma comment(lib,"Comctl32.lib")
+#pragma comment(lib,"Shlwapi.lib")
+#endif
+
 std::wstring rebuildArgument(std::wstring_view argument) {
 	auto result = std::wstring{};
 	auto needQuotes = false;
